@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Questions {% endblock %}</h1>
+    <form method="post">
+        <!-- Iterate over all questions -->
+        {% for question in questions %}
+            {% set title = questions[question]['title'] %}
+            {% set input = questions[question]['input'] %}
+            {% if input=='text' %}
+                <!-- Text Input -->
+                <label for="{{ title }}">{{ question }}</label>
+                <br>
+                <input type="{{ input }}" name="{{ title }}"
+                value="{{ request.form[title] }}"></input>
+                <br>
+            {% elif input=='dropdown' %}
+                <!-- Dropdown Input -->
+                {% set options = questions[question]['options'] %}
+                <label for="{{ title }}">{{ question }}</label>
+                <br>
+                <select name="{{ title }}" value="{{ request.form[title] }}">
+                    {% for option in options %}
+                    <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+                <br>
+            {% endif %}
+        {% endfor %}
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

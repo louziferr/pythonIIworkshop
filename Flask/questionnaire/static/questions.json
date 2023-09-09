@@ -1,0 +1,20 @@
+{
+    "What is your name?": {
+        "title": "name",
+        "input": "text"
+    },
+    "What is your study program?": {
+        "title": "study_program",
+        "input": "text"
+    },
+    "How old are you?": {
+        "title": "age",
+        "input": "dropdown",
+        "options": [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+    },
+    "How do you get to work?": {
+        "title": "workway",
+        "input": "dropdown",
+        "options": ["car", "bike", "public transport", "walking"]
+    }
+}
