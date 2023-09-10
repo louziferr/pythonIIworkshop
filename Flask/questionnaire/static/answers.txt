@@ -1,4 +1,0 @@
-Luzie	Computer Science	26	public transport
-Luise	Technical Engineering	25	bike
-Tobias	Area Development	24	walking
-Lukas	CEO	23	bike

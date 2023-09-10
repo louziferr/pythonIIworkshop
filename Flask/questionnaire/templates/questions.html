@@ -25,6 +25,18 @@
                     {% endfor %}
                 </select>
                 <br>
+                {% elif input=='dropdown_range' %}
+                <!-- Dropdown Range Input -->
+                {% set start = questions[question]['start'] %}
+                {% set end = questions[question]['end'] %}
+                <label for="{{ title }}">{{ question }}</label>
+                <br>
+                <select name="{{ title }}" value="{{ request.form[title] }}">
+                    {% for i in range(start, end) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <br>
             {% endif %}
         {% endfor %}
         <br>

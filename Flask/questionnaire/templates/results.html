@@ -5,18 +5,16 @@
     <table class="table">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Study Program</th>
-            <th scope="col">Age</th> 
-            <th scope="col">Workway</th>
+            {% for attribute in attributes %}
+            <th scope="col">{{ attribute }}</th>
+            {% endfor %}
         </tr>
-        {% for result in results %}
+        {% for entry in results %}
         <tr>
             <th scope="col">#</th>
-          <td><a href="#"><h2>{{ result[0] }}</h2></a></td>
-          <td>{{ result[1] }}</td> 
-          <td>{{ result[2] }}</td> 
-          <td>{{ result[3] }}</td>
+            {% for answer in entry %}
+            <td>{{ answer }}</td>
+            {% endfor %}
         </tr>
         {% endfor %}
       </table>

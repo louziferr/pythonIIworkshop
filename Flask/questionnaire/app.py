@@ -17,14 +17,15 @@ attributes = [questions[question]['title'] for question in questions]
 answers=[]
 
 # open file to read and save answers
-answer_file = open("Flask/questionnaire/static/answers.txt", "a+")
+answer_file = open("Flask/questionnaire/static/answers.csv", "a+")
 
 # start reading from the beginning
 answer_file.seek(0)
+
 # iterate over answers
 for line in answer_file:
     # append answers to list
-    answers.append(line.strip("\n").split("\t"))
+    answers.append(line.strip("\n").split(";"))
 
 ## APP ROUTING ##
 
@@ -47,7 +48,7 @@ def questionnaire():
 
 @app.route('/results')
 def results():
-    return render_template('results.html', results=answers)
+    return render_template('results.html', attributes=attributes, results=answers)
 
 ## HELPER FUNCTIONS ##
 
@@ -64,7 +65,7 @@ def save_answer(answer):
     # append to current answer list
     answers.append(answer_list)
     # write to file
-    answer_file.write("\t".join(answer_list))
+    answer_file.write(";".join(answer_list))
     answer_file.write("\n")
 
 if __name__ == "__main__":
