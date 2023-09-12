@@ -20,7 +20,6 @@ file.close()
 def results():
     return render_template('results.html', answers=answers)
 
-
 # route for retrieving new data
 @app.route("/questions", methods=('GET', 'POST'))
 def questions():
