@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Questionaire
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        <label>What is your first name?</label>
+        <br>
+        <input type="text" name="first_name"></input>
+        <br>
+        <label>What is your second name?</label>
+        <br>
+        <input type="text" name="second_name"></input>
+        <br>
+        <label>What is your age?</label>
+        <br>
+        <input type="text" name="age"></input>
+        <br>
+        <label>What is your study programm?</label>
+        <br>
+        <input type="text" name="study_programm"></input>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
