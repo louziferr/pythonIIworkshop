@@ -40,9 +40,7 @@ def questions():
 # function to save answers from a form
 def save_answer(form):
     # create list with answers
-    new_answer = []
-    for attribute in form:
-        new_answer.append(form[attribute])
+    new_answer = [form[attribute] for attribute in form]
 
     # write to file
     with open('static/answers.csv', 'a') as f:
