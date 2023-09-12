@@ -3,6 +3,18 @@ from flask import Flask, render_template, request, redirect, url_for
 # create app
 app = Flask(__name__)
 
+
+# route for start page
+@app.route("/")
+def index():
+    return render_template('index.html')
+
+
+# route for showing results
+@app.route("/results")
+def results():
+    return render_template('results.html', answers=answers)
+
 # open file with data
 file = open('static/answers.csv')
 
@@ -15,11 +27,6 @@ answers= [ entry.strip("\n").split(",") for entry in lines ]
 # close file
 file.close()
 
-# route for showing results
-@app.route("/results")
-def results():
-    return render_template('results.html', answers=answers)
-
 # route for retrieving new data
 @app.route("/questions", methods=('GET', 'POST'))
 def questions():
@@ -29,10 +36,6 @@ def questions():
         return redirect(url_for('results'))
     return render_template('questions.html')
 
-# route for start page
-@app.route("/")
-def index():
-    return render_template('index.html')
 
 # function to save answers from a form
 def save_answer(form):
